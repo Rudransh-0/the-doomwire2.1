@@ -1,0 +1,252 @@
+@import "tailwindcss";
+
+/* 
+  DOOMWIRE MINIMALIST DARK DESIGN SYSTEM
+  Deep Obsidian Canvas + Refined 1px Colored Borderlines
+*/
+
+/* THEME 1: OBSIDIAN_BLUE (Electric Blue on Obsidian) */
+:root, [data-theme="OBSIDIAN_BLUE"] {
+  --bg-deep: #05070c;
+  --bg-panel: rgba(8, 12, 20, 0.88);
+  --bg-panel-glow: rgba(10, 16, 28, 0.94);
+  --border-theme: rgba(56, 189, 248, 0.25);
+  --border-theme-hover: rgba(56, 189, 248, 0.6);
+  
+  --theme-primary: #38bdf8;
+  --theme-primary-subtle: rgba(56, 189, 248, 0.12);
+  --theme-secondary: #60a5fa;
+  --atmosphere-color: #0284c7;
+  --grid-color: rgba(56, 189, 248, 0.02);
+  --space-radial: rgba(14, 116, 144, 0.12);
+}
+
+/* THEME 2: DEEP_VIOLET (Deep Purplish Black + Vivid Purple) */
+[data-theme="DEEP_VIOLET"] {
+  --bg-deep: #06040b;
+  --bg-panel: rgba(14, 8, 24, 0.88);
+  --bg-panel-glow: rgba(20, 12, 34, 0.94);
+  --border-theme: rgba(192, 132, 252, 0.28);
+  --border-theme-hover: rgba(192, 132, 252, 0.65);
+  
+  --theme-primary: #c084fc;
+  --theme-primary-subtle: rgba(192, 132, 252, 0.12);
+  --theme-secondary: #ec4899;
+  --atmosphere-color: #7e22ce;
+  --grid-color: rgba(192, 132, 252, 0.02);
+  --space-radial: rgba(126, 34, 206, 0.12);
+}
+
+/* THEME 3: CRIMSON_PROTOCOL (Obsidian Black + Sharp Crimson Red) */
+[data-theme="CRIMSON_PROTOCOL"] {
+  --bg-deep: #070406;
+  --bg-panel: rgba(16, 7, 10, 0.88);
+  --bg-panel-glow: rgba(24, 10, 15, 0.94);
+  --border-theme: rgba(244, 63, 94, 0.28);
+  --border-theme-hover: rgba(244, 63, 94, 0.65);
+  
+  --theme-primary: #f43f5e;
+  --theme-primary-subtle: rgba(244, 63, 94, 0.12);
+  --theme-secondary: #fb7185;
+  --atmosphere-color: #be123c;
+  --grid-color: rgba(244, 63, 94, 0.02);
+  --space-radial: rgba(190, 18, 60, 0.12);
+}
+
+/* THEME 4: NEO_EMERALD (Obsidian Forest Black + Crisp Emerald) */
+[data-theme="NEO_EMERALD"] {
+  --bg-deep: #040705;
+  --bg-panel: rgba(6, 14, 9, 0.88);
+  --bg-panel-glow: rgba(8, 20, 13, 0.94);
+  --border-theme: rgba(16, 185, 129, 0.26);
+  --border-theme-hover: rgba(16, 185, 129, 0.65);
+  
+  --theme-primary: #10b981;
+  --theme-primary-subtle: rgba(16, 185, 129, 0.12);
+  --theme-secondary: #34d399;
+  --atmosphere-color: #047857;
+  --grid-color: rgba(16, 185, 129, 0.02);
+  --space-radial: rgba(4, 120, 87, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: #f8fafc;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-sans {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-feature-settings: "zero" 1, "tnum" 1;
+}
+
+/* Deep Obsidian Canvas with Fine Subtle Grid */
+.deep-space-canvas {
+  background-color: var(--bg-deep);
+  background-image: 
+    radial-gradient(circle at 50% 50%, var(--space-radial) 0%, var(--bg-deep) 75%),
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  transition: all 0.3s ease;
+}
+
+/* Minimalist Glass Panels with Refined Hairline Borders */
+.tactical-panel {
+  background: var(--bg-panel);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-theme);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.tactical-panel-glow {
+  background: var(--bg-panel-glow);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-theme);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.85);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Bottom Command Deck */
+.bottom-command-deck {
+  background: var(--bg-panel);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border-theme);
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+}
+
+/* Sleek Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-primary);
+}
+
+/* Refined Minimal Threat Badges */
+.badge-threat-green {
+  background: rgba(16, 185, 129, 0.1);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.badge-threat-yellow {
+  background: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.badge-threat-orange {
+  background: rgba(249, 115, 22, 0.12);
+  color: #fb923c;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.badge-threat-red {
+  background: rgba(244, 63, 94, 0.12);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.badge-threat-purple {
+  background: rgba(168, 85, 247, 0.12);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+/* Animations */
+@keyframes slideRightIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-slide-in-right {
+  animation: slideRightIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* =========================================================================
+   HIGH-DEFINITION 16:9 PRINT & PDF EXPORT STYLES
+   ========================================================================= */
+@media print {
+  @page {
+    size: 1920px 1080px;
+    margin: 0;
+  }
+
+  html, body {
+    width: 1920px !important;
+    height: 1080px !important;
+    background-color: #05070c !important;
+    color: #f8fafc !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    overflow: visible !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .screen-active-slide {
+    display: none !important;
+  }
+
+  .print-container {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .print-slide {
+    width: 1920px !important;
+    height: 1080px !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    padding: 48px 64px !important;
+    box-sizing: border-box !important;
+    background-color: #05070c !important;
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(14, 116, 144, 0.12) 0%, #05070c 75%),
+      linear-gradient(to right, rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(56, 189, 248, 0.03) 1px, transparent 1px) !important;
+    background-size: 100% 100%, 40px 40px, 40px 40px !important;
+    border: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    overflow: hidden !important;
+    position: relative !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
