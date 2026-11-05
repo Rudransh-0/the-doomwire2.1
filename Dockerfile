@@ -1,8 +1,8 @@
 # Multi-stage production build for minimal attack surface & non-root security
-FROM node:20-slim AS frontend-builder
+FROM node:22-slim AS frontend-builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --ignore-scripts
 COPY index.html vite.config.js ./
 COPY src/ ./src/
 RUN npm run build
@@ -13,7 +13,7 @@ WORKDIR /app
 # Setup production backend
 WORKDIR /app/backend
 COPY backend/package*.json ./
-RUN npm ci --omit=dev
+RUN npm ci --omit=dev --ignore-scripts
 COPY backend/ ./
 
 # Copy built frontend static dist into backend dist path
